@@ -6,7 +6,7 @@ import { seoPlugin } from 'vuepress-plugin-seo2';
 import { sitemapPlugin } from 'vuepress-plugin-sitemap2';
 
 export default defineUserConfig({
-  title: '异想之旅のBlog',
+  title: '乌图AI-uTuAI',
   shouldPrefetch: false,
   head: [
     ['link', { rel: 'stylesheet', href: '/css/katex.min.css' }],
@@ -15,75 +15,77 @@ export default defineUserConfig({
       'meta',
       {
         name: 'description',
-        content: '异想之旅官网 异想之旅王子的技术分享博客',
+        content: '乌图AI,utuai.com',
       },
     ],
   ],
   lang: 'zh-CN',
   theme: recoTheme({
+    catalogTitle: '目录',
     style: '@vuepress-reco/style-default',
-    logo: '/logo.png',
-    author: '异想之旅王子',
-    authorAvatar: '/head.png',
+    // logo: '/logo.png',
+    author: 'Fang_冬',
+    // authorAvatar: '/head.png',
     lastUpdatedText: '',
     series: {
-      '/docs/yxzl/projects/': ['yiyan', 'lightmysql', 'cloudreve'],
-      '/docs/genuine-oj/': [
-        'introduction',
-        {
-          text: '部署',
-          children: [
-            'before_start',
-            'frontend',
-            '/docs/genuine-oj/backend.md',
-            'judger',
-            'docker',
-          ],
-          disableSort: true,
-        },
-        {
-          text: '使用教程和说明',
-          children: [
-            'about_hidden',
-            '/docs/genuine-oj/add_judge_language.md',
-            'test_case',
-            'end_relationship',
-            'import_problem',
-            'bug_and_feature',
-          ],
-        },
-      ],
+      '/docs/vue/': ['vue'],
+      // '/docs/genuine-oj/': [
+      //   'introduction',
+      //   {
+      //     text: '部署',
+      //     children: [
+      //       'before_start',
+      //       'frontend',
+      //       '/docs/genuine-oj/backend.md',
+      //       'judger',
+      //       'docker',
+      //     ],
+      //     disableSort: true,
+      //   },
+      //   {
+      //     text: '使用教程和说明',
+      //     children: [
+      //       'about_hidden',
+      //       '/docs/genuine-oj/add_judge_language.md',
+      //       'test_case',
+      //       'end_relationship',
+      //       'import_problem',
+      //       'bug_and_feature',
+      //     ],
+      //   },
+      // ],
     },
     navbar: [
-      { text: 'Home', link: '/' },
-      { text: 'Projects', link: '/docs/yxzl/projects/yiyan' },
-      { text: 'About', link: '/docs/yxzl/about' },
-      { text: 'Friend Link', link: '/docs/yxzl/friendlink' },
-      // {
-      //   text: 'Docs',
-      //   children: [
-      //     { text: 'vuepress-reco', link: '/docs/theme-reco/theme' },
-      //     { text: 'vuepress-theme-reco', link: '/blogs/other/guide' },
-      //   ],
-      // },
+      { text: '前端笔记', children:[
+          { text: '《 Vue 》', link: '/docs/vue' },
+          { text: '《 React 》', link: '/react' },
+          { text: '《 UniApp 》', link: '/uniApp' },
+          { text: '《 微信小程序 》', link: '/wxApp' },
+        ] },
+      { text: '面试题', link: '/posts' },
+      { text: '关于', link: '/docs/yxzl/about' },
+      { text: '友链', children:[
+          { text: 'Chat', link: 'http://chat.utuai.com'},
+          { text: '题海后台', link: 'http://admin.utuai.com'},
+        ]}
     ],
-    commentConfig: {
-      type: 'giscus',
-      options: {
-        repo: 'yxzlwz/blog',
-        repoId: 'R_kgDOJq1RYg',
-        category: 'Announcements',
-        categoryId: 'DIC_kwDOJq1RYs4CW7t8',
-      },
-    },
-    algolia: {
-      appId: 'N32QD6F9U4',
-      apiKey: '2b0bc41ff2874019c52f998bd0d9ba89',
-      indexName: 'yixiangzhilv',
-      inputSelector: '### REPLACE ME ####',
-      algoliaOptions: { facetFilters: ['lang:$LANG'] },
-      debug: false, // Set debug to true if you want to inspect the dropdown
-    },
+    // commentConfig: {
+    //   type: 'giscus',
+    //   options: {
+    //     repo: 'yxzlwz/blog',
+    //     repoId: 'R_kgDOJq1RYg',
+    //     category: 'Announcements',
+    //     categoryId: 'DIC_kwDOJq1RYs4CW7t8',
+    //   },
+    // },
+    // algolia: {
+    //   appId: 'Z9UI06CZ8H',
+    //   apiKey: 'cfe3ceb54cf1890c63aaa00df86130bd',
+    //   indexName: 'docFang',
+    //   inputSelector: '### REPLACE ME ####',
+    //   algoliaOptions: { facetFilters: ['lang:$LANG'] },
+    //   debug: false, // Set debug to true if you want to inspect the dropdown
+    // },
     // bulletin: {
     //   body: [
     //     {
@@ -96,17 +98,17 @@ export default defineUserConfig({
   }),
   plugins: [
     googleAnalyticsPlugin({
-      id: 'G-YNWN3VVCTL',
+      id: '',
     }),
     seoPlugin({
-      hostname: 'https://www.yixiangzhilv.com',
+      hostname: 'http://www.utuai.com',
       author: {
-        name: '异想之旅王子',
-        email: 'mail@yixiangzhilv.com',
+        name: 'Fang_冬',
+        email: '752043344@qq.com',
       },
     }),
     sitemapPlugin({
-      hostname: 'https://www.yixiangzhilv.com',
+      hostname: 'http://www.utuai.com',
       changefreq: 'weekly',
     }),
   ],
